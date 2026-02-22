@@ -1,0 +1,177 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    /* Primary - Deep Navy */
+    --background: 220 30% 98%;
+    --foreground: 220 40% 13%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 40% 13%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 40% 13%;
+
+    /* Navy Blue - Main Brand */
+    --primary: 220 60% 22%;
+    --primary-foreground: 45 80% 95%;
+
+    /* Light Blue-Gray */
+    --secondary: 220 20% 94%;
+    --secondary-foreground: 220 40% 20%;
+
+    --muted: 220 15% 92%;
+    --muted-foreground: 220 15% 45%;
+
+    /* Gold Accent */
+    --accent: 42 85% 55%;
+    --accent-foreground: 220 60% 15%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 20% 88%;
+    --input: 220 20% 88%;
+    --ring: 220 60% 22%;
+
+    --radius: 0.5rem;
+
+    /* Custom tokens */
+    --gold: 42 85% 55%;
+    --gold-light: 45 80% 70%;
+    --navy-dark: 220 65% 15%;
+    --navy-light: 220 45% 35%;
+    
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(220 65% 15%) 0%, hsl(220 55% 28%) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(42 85% 55%) 0%, hsl(38 90% 45%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(220 30% 98%) 100%);
+    
+    /* Shadows */
+    --shadow-sm: 0 2px 8px -2px hsl(220 60% 22% / 0.08);
+    --shadow-md: 0 8px 24px -8px hsl(220 60% 22% / 0.12);
+    --shadow-lg: 0 16px 48px -12px hsl(220 60% 22% / 0.18);
+    --shadow-gold: 0 8px 32px -8px hsl(42 85% 55% / 0.35);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 220 40% 8%;
+    --foreground: 220 15% 95%;
+
+    --card: 220 35% 12%;
+    --card-foreground: 220 15% 95%;
+
+    --popover: 220 35% 12%;
+    --popover-foreground: 220 15% 95%;
+
+    --primary: 42 85% 55%;
+    --primary-foreground: 220 60% 12%;
+
+    --secondary: 220 30% 18%;
+    --secondary-foreground: 220 15% 90%;
+
+    --muted: 220 25% 20%;
+    --muted-foreground: 220 15% 60%;
+
+    --accent: 42 85% 55%;
+    --accent-foreground: 220 60% 12%;
+
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 25% 22%;
+    --input: 220 25% 22%;
+    --ring: 42 85% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer components {
+  .text-gradient-gold {
+    background: linear-gradient(135deg, hsl(42 85% 55%) 0%, hsl(38 90% 45%) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .bg-hero-gradient {
+    background: var(--gradient-hero);
+  }
+
+  .bg-gold-gradient {
+    background: var(--gradient-gold);
+  }
+
+  .shadow-elegant {
+    box-shadow: var(--shadow-md);
+  }
+
+  .shadow-gold {
+    box-shadow: var(--shadow-gold);
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 ease-out;
+  }
+
+  .card-hover:hover {
+    @apply -translate-y-1;
+    box-shadow: var(--shadow-lg);
+  }
+
+  .section-padding {
+    @apply py-16 md:py-24 px-4 md:px-8;
+  }
+
+  .container-custom {
+    @apply max-w-7xl mx-auto;
+  }
+}
+
+@layer utilities {
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .animate-shimmer {
+    animation: shimmer 2s linear infinite;
+    background-size: 200% 100%;
+  }
+
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+}
